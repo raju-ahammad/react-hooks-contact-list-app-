@@ -5,7 +5,7 @@ const LoginContainer = () => {
     return (
         <div>
             Login Container
-            <Link to="/user/register">SignUp here</Link>
+            <Link to="/auth/register">SignUp here</Link>
         </div>
     )
 }

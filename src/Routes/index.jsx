@@ -5,12 +5,12 @@ import RegisterContainer from "../Containers/Register/RegisterContainer"
 
 const routes = [
     {
-        path: "/user/register",
+        path: "/auth/register",
         component: RegisterContainer,
         title: "Register"
     },
     {
-        path: "/user/login",
+        path: "/auth/login",
         component: LoginContainer,
         title: "Login"
     },
