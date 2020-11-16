@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { getRegister } from '../../Context/Actions/Register';
+import RegisterUi from '../../Layout/RegisterForm/RegisterUi';
 const RegisterContainer = () => {
 
     useEffect(() => {
@@ -8,9 +8,7 @@ const RegisterContainer = () => {
     }, [])
     return (
         <div>
-         
-            Register Container
-            <Link to="/auth/login">Login Here</Link>
+            <RegisterUi/>
         </div>
     )
 }
