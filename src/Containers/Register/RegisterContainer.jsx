@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { getRegister } from '../../Context/Actions/Register'
-
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { getRegister } from '../../Context/Actions/Register';
 const RegisterContainer = () => {
 
     useEffect(() => {
@@ -9,6 +8,7 @@ const RegisterContainer = () => {
     }, [])
     return (
         <div>
+         
             Register Container
             <Link to="/auth/login">Login Here</Link>
         </div>
