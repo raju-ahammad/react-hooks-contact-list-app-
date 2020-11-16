@@ -3,11 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 import Header from './Components/Header/index';
+import GlobalProvider from "./Context/Provider";
 import routes from "./Routes";
+
+
 function App() {
+
   return (
-    <div className="App">
-     
+    <GlobalProvider>
      <Router>
      <Header/>
        <Switch>
@@ -18,7 +21,7 @@ function App() {
          }
        </Switch>
      </Router>
-    </div>
+    </GlobalProvider>
   );
 }
 

@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
-import { getContact } from '../../Context/Actions/Contact';
+import React, { useContext } from 'react';
+import { GlobalContext } from '../../Context/Provider';
 const ContactContainer = () => {
-    useEffect(()=> {
-        getContact()
-    })
+    const context = useContext(GlobalContext)
+    console.log("contextContainer", context);
     return (
         <div>
-         
             Container
         </div>
     )
