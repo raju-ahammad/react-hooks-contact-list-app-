@@ -1,11 +1,10 @@
 import React from 'react'
-import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 
 
-const RegisterUi = () => {
-    const { register, handleSubmit, errors } = useForm()
+const RegisterUi = ({ form:{onChange, form, registerdFormValid} }) => {
+    
 
 
     return (
@@ -15,21 +14,21 @@ const RegisterUi = () => {
                 <Segment>
                 <Form style={{ padding:10 }}>
                     <Form.Field>
-                        <Form.Input name="username" placeholder="username" label="Username"/>
+                        <Form.Input value={form.username || ""} onChange={onChange} name="username" placeholder="username" label="Username"/> 
                     </Form.Field>
                     <Form.Field>
-                        <Form.Input name="firstName" placeholder="First Name" label="firstname"/>
+                        <Form.Input value={form.firstName || ""} onChange={onChange} name="firstName" placeholder="First Name" label="Firstname"/>
                     </Form.Field>
                     <Form.Field>
-                        <Form.Input name="lasttName" placeholder="Last Name" label="lastname"/>
+                        <Form.Input value={form.lastName || ""} onChange={onChange} name="lastName" placeholder="lastname" label="Lastname"/>
                     </Form.Field>
                     <Form.Field>
-                        <Form.Input name="email" type="email" placeholder="Email" label="email"/>
+                        <Form.Input value={form.email || ""} onChange={onChange} name="email" type="email" placeholder="email" label="Email"/>
                     </Form.Field>
                     <Form.Field>
-                        <Form.Input name="password" type="password" placeholder="Password" label="password"/>
+                        <Form.Input value={form.password || ""} onChange={onChange} name="password" type="password" placeholder="password" label="Password"/>
                     </Form.Field>
-                    <Button type='submit' color="green" fluid>Submit</Button>
+                    <Button disabled={ registerdFormValid} type='submit' color="green" fluid>Submit</Button>
                 </Form>
                 <Header style={{ textAlign:"center" }} as="h4">Login in here <Link to="/auth/login ">Login</Link> </Header>
                 </Segment>
