@@ -1,11 +1,10 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 
 
-const RegisterUi = ({ form:{onChange, form, registerdFormValid} }) => {
-    
-
+const RegisterUi = ({ form:{onChange, form, registerdFormValid, onSubmit, loading, fieldErrors} }) => {
+    console.log(fieldErrors);
 
     return (
         <Grid centered>
@@ -14,23 +13,58 @@ const RegisterUi = ({ form:{onChange, form, registerdFormValid} }) => {
                 <Segment>
                 <Form style={{ padding:10 }}>
                     <Form.Field>
-                        <Form.Input value={form.username || ""} onChange={onChange} name="username" placeholder="username" label="Username"/> 
+                        <Form.Input value={form.username || ""} onChange={onChange} name="username" placeholder="username" label="Username" 
+                        error={
+                            fieldErrors.username && {
+                                content: fieldErrors.username,
+                                pointing: "below"
+                            }
+                        }
+                        /> 
                     </Form.Field>
                     <Form.Field>
-                        <Form.Input value={form.firstName || ""} onChange={onChange} name="firstName" placeholder="First Name" label="Firstname"/>
+                        <Form.Input value={form.firstName || ""} onChange={onChange} name="firstName" placeholder="First Name" label="Firstname"
+                        error={
+                            fieldErrors.first_name && {
+                                content: fieldErrors.first_name,
+                                pointing: "below"
+                            }
+                        }
+                        />
                     </Form.Field>
                     <Form.Field>
-                        <Form.Input value={form.lastName || ""} onChange={onChange} name="lastName" placeholder="lastname" label="Lastname"/>
+                        <Form.Input value={form.lastName || ""} onChange={onChange} name="lastName" placeholder="lastname" label="Lastname"
+                        error={
+                            fieldErrors.last_name && {
+                                content: fieldErrors.last_name,
+                                pointing: "below"
+                            }
+                        }
+                        />
                     </Form.Field>
                     <Form.Field>
-                        <Form.Input value={form.email || ""} onChange={onChange} name="email" type="email" placeholder="email" label="Email"/>
+                        <Form.Input value={form.email || ""} onChange={onChange} name="email" type="email" placeholder="email" label="Email" 
+                        error={
+                            fieldErrors.email && {
+                                content: fieldErrors.email,
+                                pointing: "below"
+                            }
+                        }
+                        />
                     </Form.Field>
                     <Form.Field>
-                        <Form.Input value={form.password || ""} onChange={onChange} name="password" type="password" placeholder="password" label="Password"/>
+                        <Form.Input value={form.password || ""} onChange={onChange} name="password" type="password" placeholder="password" label="Password" 
+                        error={
+                            fieldErrors.password && {
+                                content: fieldErrors.password,
+                                pointing: "below"
+                            }
+                        }
+                        />
                     </Form.Field>
-                    <Button disabled={ registerdFormValid} type='submit' color="green" fluid>Submit</Button>
+                    <Button loading={loading} onClick={onSubmit} disabled={ registerdFormValid || loading} type='submit' color="green" fluid>Submit</Button>
                 </Form>
-                <Header style={{ textAlign:"center" }} as="h4">Login in here <Link to="/auth/login ">Login</Link> </Header>
+                <h3 style={{ textAlign:"center" }} > <Header as={Link} to="/auth/login">Login</Header> in here</h3>
                 </Segment>
             </Grid.Column>
 
