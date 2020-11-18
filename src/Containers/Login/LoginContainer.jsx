@@ -1,16 +1,14 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { GlobalContext } from '../../Context/Provider';
+import React, { useEffect } from 'react';
+import LoginUi from '../../Layout/LoginForm/LoginUi';
+import useForm from './useForm';
 
 const LoginContainer = () => {
-    const { authDispatch, authState:{auth:{loading, data, error}} } = useContext(GlobalContext)
-    console.log(data);
+   
+    useEffect(() => {}, [])
+    
     return (
         <div>
-            Login Container
-            <h3> { data ? `welcome to hell ${data?.username}`:"login here" } </h3>
-            <Link to="/auth/register">SignUp here</Link>
-            
+            <LoginUi form={useForm()} />
         </div>
     )
 }
