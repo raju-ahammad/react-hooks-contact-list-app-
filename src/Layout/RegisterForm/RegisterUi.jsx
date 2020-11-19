@@ -64,7 +64,7 @@ const RegisterUi = ({ form:{onChange, form, registerdFormValid, onSubmit, loadin
                     </Form.Field>
                     <Button loading={loading} onClick={onSubmit} disabled={ registerdFormValid || loading} type='submit' color="green" fluid>Submit</Button>
                 </Form>
-                <h3 style={{ textAlign:"center" }} > <Header as={Link} to="/auth/login">Login</Header> in here</h3>
+                <Segment>Already have an account <Link to="/auth/login">login</Link> here </Segment>
                 </Segment>
             </Grid.Column>
 

@@ -10,6 +10,8 @@ import isAuthenticated from "./Utils/isAuthenticated";
 const RenderRoute = (route) => {
   const history = useHistory();
 
+  document.title = route.title || "trulyContact"
+
   if (route.needsAuth && !isAuthenticated()) {
     history.push("/auth/login");
   }

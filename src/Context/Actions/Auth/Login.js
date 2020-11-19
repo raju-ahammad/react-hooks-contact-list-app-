@@ -1,12 +1,12 @@
 import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCESS } from '../../../Contstants/ActionTypes'
-import axiosInstance from '../../../Helper/Axios'
+import axiosInstance from '../../../Helper/axiosInstance'
 
 export const getLogin = ({username, password}) => (dispatch) => {
     dispatch({
         type: LOGIN_LOADING,
     })
 
-    axiosInstance
+    axiosInstance()
         .post('/auth/login', {username, password})
         .then((res)=>{
             localStorage.token = res.data.token;

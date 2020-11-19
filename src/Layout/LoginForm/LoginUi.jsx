@@ -20,7 +20,7 @@ const LoginUi = ({ form:{onChange, form, loginFormValid, onSubmit, loading, erro
                     </Form.Field>
                     <Button loading={loading} onClick={onSubmit} disabled={ loginFormValid || loading} type='submit' color="green" fluid>Submit</Button>
                 </Form>
-                <h3 style={{ textAlign:"center" }} > you are not register <Header as={Link} to="/auth/register">SignUp</Header> here</h3>
+                <Segment>Need an account <Link to="/auth/register">Register</Link> here </Segment>
                 </Segment>
             </Grid.Column>
 
