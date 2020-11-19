@@ -1,4 +1,5 @@
 import { REGISTER_ERROR, REGISTER_LOADING, REGISTER_SUCCESS } from '../../../Contstants/ActionTypes'
+import { CONNECTION_ERROR } from '../../../Contstants/api'
 import axiosInstance from '../../../Helper/axiosInstance'
 
 export const getRegister = ({username, firstName:first_name, lastName:last_name, email, password}) => (dispatch) => {
@@ -17,7 +18,7 @@ export const getRegister = ({username, firstName:first_name, lastName:last_name,
         .catch((err)=>{
             dispatch({
                 type: REGISTER_ERROR,
-                payload: err.response? err.response.data :"Could not coonect"
+                payload: err.response? err.response.data :CONNECTION_ERROR
             })
         })
 }

@@ -1,4 +1,5 @@
 import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCESS } from '../../../Contstants/ActionTypes'
+import { CONNECTION_ERROR } from '../../../Contstants/api'
 import axiosInstance from '../../../Helper/axiosInstance'
 
 export const getLogin = ({username, password}) => (dispatch) => {
@@ -18,7 +19,7 @@ export const getLogin = ({username, password}) => (dispatch) => {
         .catch((err)=>{
             dispatch({
                 type: LOGIN_ERROR,
-                payload: err.response? err.response.data :"Could not coonect"
+                payload: err.response? err.response.data :CONNECTION_ERROR
             })
         })
 }

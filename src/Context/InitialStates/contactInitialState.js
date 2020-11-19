@@ -1,10 +1,12 @@
 export default {
-    conatct: {
+    contacts: {
         loading: false,
-        error: null
+        error: null,
+        data: []
     },
     addConatct: {
         loading: false,
         error: null
+        
     }
 }
