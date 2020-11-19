@@ -1,11 +1,22 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, useHistory } from "react-router-dom";
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 import Header from './Components/Header/index';
 import GlobalProvider from "./Context/Provider";
 import routes from "./Routes";
+import isAuthenticated from "./Utils/isAuthenticated";
 
+const RenderRoute = (route) => {
+  const history = useHistory();
+
+  if (route.needsAuth && !isAuthenticated()) {
+    history.push("/auth/login");
+  }
+  return (
+    <Route  path={route.path} exact render={(props) => <route.component {...props} />}></Route>
+  )
+}
 
 function App() {
 
@@ -15,8 +26,8 @@ function App() {
      <Header/>
        <Switch>
          {
-           routes.map((rout, index)=> (
-             <Route key={index} path={rout.path} exact render={(props) => <rout.component {...props} />}></Route>
+           routes.map((route, index)=> (
+             <RenderRoute {...route} key={ index }/>
            ))
          }
        </Switch>
