@@ -5,6 +5,12 @@ import RegisterContainer from "../Containers/Register/RegisterContainer"
 
 const routes = [
     {
+        path: "/contact/create",
+        component: CreateContactContainer,
+        title: "Create Contact",
+        needsAuth: true
+    },
+    {
         path: "/auth/register",
         component: RegisterContainer,
         title: "Register",
@@ -22,12 +28,6 @@ const routes = [
         title: "Contact",
         needsAuth: true
     },
-    {
-        path: "/contacts/create",
-        component: CreateContactContainer,
-        title: "Create Contact",
-        needsAuth: false
-    }
     
 ]
 

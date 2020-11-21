@@ -36,7 +36,7 @@ const Header = () => {
                 />
                 {pathname === "/" && (
                     <Menu.Item position="right">
-                    <Button as={Link} to="/contacts/create" primary basic icon >
+                    <Button as={Link} to="/contact/create" primary basic icon >
                         <Icon name="add"> </Icon>
                         Create Contact
                     </Button>
